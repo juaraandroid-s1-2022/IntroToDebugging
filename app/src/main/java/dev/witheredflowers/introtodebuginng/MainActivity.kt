@@ -43,9 +43,12 @@ class MainActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		// Kode ini akan error karena layout belum ditemplokin, tapi udah manggil TextView
-		val helloTextView: TextView = findViewById(R.id.hello_world)
-		helloTextView.text = "Hello, Debugging !"
 		setContentView(R.layout.activity_main)
+		// Sebelumnya errornya di sini karena di set sebelum setContentView
+		Log.d(TAG, "Sebelumnya error di sini")
+		val helloTextView: TextView = findViewById(R.id.hello_world)
+		Log.d(TAG, "Sekarang sudah tidak error")
+		helloTextView.text = "Hello, Debugging !"
 		logging()
 		pembagian()
 	}
