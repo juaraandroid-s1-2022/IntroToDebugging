@@ -7,6 +7,18 @@ import android.util.Log
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
+	fun pembagian() {
+		// Angka yang akan dibagi
+		val numerator = 60
+		// Angka pembagi
+		var denominator = 4
+		
+		repeat(5) {
+			Log.v(TAG, "${numerator / denominator}")
+			denominator--;
+		}
+	}
+	
 	fun logging() {
 		// log level: error
 		Log.e(TAG, "ERROR: error yang kritis seperti aplikasi 'ngamuk'")
@@ -24,5 +36,6 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		logging()
+		pembagian()
 	}
 }
