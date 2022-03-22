@@ -13,9 +13,16 @@ class MainActivity : AppCompatActivity() {
 		// Angka pembagi
 		var denominator = 4
 		
-		repeat(5) {
+		// Awalnya di sini repeatnya menggunakan 5
+		// Akan terkena error bahwa Angka yang akan dibagi adalah 0
+		// sehingga 0 dibagi berapapun = tak terhingga
+		// error aritmatika
+		
+		// solus: ganti repeat 5 jadi repeat 4
+		// repeat(5) {
+		repeat(4) {
 			Log.v(TAG, "${numerator / denominator}")
-			denominator--;
+			denominator--
 		}
 	}
 	
