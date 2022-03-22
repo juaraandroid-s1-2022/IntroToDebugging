@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 		// solus: ganti repeat 5 jadi repeat 4
 		// repeat(5) {
 		repeat(4) {
+			// Dibuat sleep supaya ada recordingnya
+			Thread.sleep(1000)
 			Log.v(TAG, "${numerator / denominator}")
 			denominator--
 		}
