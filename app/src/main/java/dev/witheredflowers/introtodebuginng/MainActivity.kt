@@ -3,10 +3,32 @@ package dev.witheredflowers.introtodebuginng
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
+	fun pembagian() {
+		// Angka yang akan dibagi
+		val numerator = 60
+		// Angka pembagi
+		var denominator = 4
+		
+		// Awalnya di sini repeatnya menggunakan 5
+		// Akan terkena error bahwa Angka yang akan dibagi adalah 0
+		// sehingga 0 dibagi berapapun = tak terhingga
+		// error aritmatika
+		
+		// solus: ganti repeat 5 jadi repeat 4
+		// repeat(5) {
+		repeat(4) {
+			// Dibuat sleep supaya ada recordingnya
+			Thread.sleep(1000)
+			Log.v(TAG, "${numerator / denominator}")
+			denominator--
+		}
+	}
+	
 	fun logging() {
 		// log level: error
 		Log.e(TAG, "ERROR: error yang kritis seperti aplikasi 'ngamuk'")
@@ -22,7 +44,14 @@ class MainActivity : AppCompatActivity() {
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		// Kode ini akan error karena layout belum ditemplokin, tapi udah manggil TextView
 		setContentView(R.layout.activity_main)
+		// Sebelumnya errornya di sini karena di set sebelum setContentView
+		Log.d(TAG, "Sebelumnya error di sini")
+		val helloTextView: TextView = findViewById(R.id.hello_world)
+		Log.d(TAG, "Sekarang sudah tidak error")
+		helloTextView.text = "Hello, Debugging !"
 		logging()
+		pembagian()
 	}
 }
