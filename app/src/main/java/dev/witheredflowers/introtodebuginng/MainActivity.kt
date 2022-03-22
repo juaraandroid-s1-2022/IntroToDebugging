@@ -3,6 +3,7 @@ package dev.witheredflowers.introtodebuginng
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 
 private const val TAG = "MainActivity"
 
@@ -41,6 +42,9 @@ class MainActivity : AppCompatActivity() {
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		// Kode ini akan error karena layout belum ditemplokin, tapi udah manggil TextView
+		val helloTextView: TextView = findViewById(R.id.hello_world)
+		helloTextView.text = "Hello, Debugging !"
 		setContentView(R.layout.activity_main)
 		logging()
 		pembagian()
